@@ -1,5 +1,5 @@
 properties {
-    $Project = "BoxKite.Twitter"
+    $Project = "BoxKite.Notifications"
     $ScriptDir = Resolve-Path "."
     $BaseDir = Join-Path $ScriptDir ".."
     $SolutionFile = "$BaseDir\src\$Project.sln"
@@ -7,7 +7,7 @@ properties {
     $ArtifactsDir = "$BaseDir\artifacts\"
     $NuGetPackDir = Join-Path "$OutputDir" "Pack\"
     $BaseVersion = "0.0.1"
-    $Version = "$BaseVersion-alpha" 
+    $Version = "$BaseVersion-pre" 
     $PatchNumber = (git rev-list --all | wc -l).trim() # TODO: better implementation
     $AssemblyVersion = "$BaseVersion.$PatchNumber"
 }
@@ -91,15 +91,7 @@ task compile -depends clean,version  {
     msbuild $SolutionFile "/p:OutDir=$OutputDir" "/p:Configuration=Release"  "/verbosity:quiet"
 }
 
-task test -depends compile {
-    $path = 'C:\Program Files (x86)\Microsoft Visual Studio 11.0\Common7\IDE\CommonExtensions\Microsoft\TestWindow\vstest.console.exe'
-    $appx = "$OutputDir\$Project.Tests\AppPackages\$Project.Tests_1.0.0.0_AnyCPU_Test\$Project.Tests_1.0.0.0_AnyCPU.appx"
-    if (Test-Path $path) {
-        start-process $path -ArgumentList "$appx `/InIsolation" -NoNewWindow -Wait
-    }
-}
-
-task package -depends compile,test {
+task package -depends compile {
     Create-Package -PackageName "$Project" -TempDir $NuGetPackDir
 }
 
