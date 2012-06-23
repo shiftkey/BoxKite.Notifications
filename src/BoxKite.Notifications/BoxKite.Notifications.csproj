@@ -1,0 +1,239 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{166FB620-192D-46A9-9F8D-5536C678AED0}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>BoxKite.Notifications</RootNamespace>
+    <AssemblyName>BoxKite.Notifications</AssemblyName>
+    <DefaultLanguage>en-US</DefaultLanguage>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{BC8A1FFA-BEE3-4634-8014-F334798102B3};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;NETFX_CORE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE;NETFX_CORE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|ARM'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\ARM\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;NETFX_CORE</DefineConstants>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>full</DebugType>
+    <PlatformTarget>ARM</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|ARM'">
+    <OutputPath>bin\ARM\Release\</OutputPath>
+    <DefineConstants>TRACE;NETFX_CORE</DefineConstants>
+    <Optimize>true</Optimize>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>ARM</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x64\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;NETFX_CORE</DefineConstants>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <OutputPath>bin\x64\Release\</OutputPath>
+    <DefineConstants>TRACE;NETFX_CORE</DefineConstants>
+    <Optimize>true</Optimize>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;NETFX_CORE</DefineConstants>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DefineConstants>TRACE;NETFX_CORE</DefineConstants>
+    <Optimize>true</Optimize>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <!-- A reference to the entire .Net Framework and Windows SDK are automatically included -->
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="GlyphValue.cs" />
+    <Compile Include="IBadgeNotificationContent.cs" />
+    <Compile Include="INotificationContent.cs" />
+    <Compile Include="INotificationContentImage.cs" />
+    <Compile Include="INotificationContentText.cs" />
+    <Compile Include="ISquareTileInternal.cs" />
+    <Compile Include="ISquareTileNotificationContent.cs" />
+    <Compile Include="ITileNotificationContent.cs" />
+    <Compile Include="ITileSquareBlock.cs" />
+    <Compile Include="ITileSquareImage.cs" />
+    <Compile Include="ITileWideImage.cs" />
+    <Compile Include="ITileWideImageCollection.cs" />
+    <Compile Include="IToastAudio.cs" />
+    <Compile Include="IToastNotificationContent.cs" />
+    <Compile Include="IWideTileNotificationContent.cs" />
+    <Compile Include="Templates\ITileSquarePeekImageAndText01.cs" />
+    <Compile Include="Templates\ITileSquarePeekImageAndText02.cs" />
+    <Compile Include="Templates\ITileSquarePeekImageAndText03.cs" />
+    <Compile Include="Templates\ITileSquarePeekImageAndText04.cs" />
+    <Compile Include="Templates\ITileSquareText01.cs" />
+    <Compile Include="Templates\ITileSquareText02.cs" />
+    <Compile Include="Templates\ITileSquareText03.cs" />
+    <Compile Include="Templates\ITileSquareText04.cs" />
+    <Compile Include="Templates\ITileWideBlockAndText01.cs" />
+    <Compile Include="Templates\ITileWideBlockAndText02.cs" />
+    <Compile Include="Templates\ITileWideImageAndText01.cs" />
+    <Compile Include="Templates\ITileWideImageAndText02.cs" />
+    <Compile Include="Templates\ITileWidePeekImage01.cs" />
+    <Compile Include="Templates\ITileWidePeekImage02.cs" />
+    <Compile Include="Templates\ITileWidePeekImage03.cs" />
+    <Compile Include="Templates\ITileWidePeekImage04.cs" />
+    <Compile Include="Templates\ITileWidePeekImage05.cs" />
+    <Compile Include="Templates\ITileWidePeekImage06.cs" />
+    <Compile Include="Templates\ITileWidePeekImageAndText01.cs" />
+    <Compile Include="Templates\ITileWidePeekImageAndText02.cs" />
+    <Compile Include="Templates\ITileWidePeekImageCollection01.cs" />
+    <Compile Include="Templates\ITileWidePeekImageCollection02.cs" />
+    <Compile Include="Templates\ITileWidePeekImageCollection03.cs" />
+    <Compile Include="Templates\ITileWidePeekImageCollection04.cs" />
+    <Compile Include="Templates\ITileWidePeekImageCollection05.cs" />
+    <Compile Include="Templates\ITileWidePeekImageCollection06.cs" />
+    <Compile Include="Templates\ITileWideSmallImageAndText01.cs" />
+    <Compile Include="Templates\ITileWideSmallImageAndText02.cs" />
+    <Compile Include="Templates\ITileWideSmallImageAndText03.cs" />
+    <Compile Include="Templates\ITileWideSmallImageAndText04.cs" />
+    <Compile Include="Templates\ITileWideText01.cs" />
+    <Compile Include="Templates\ITileWideText02.cs" />
+    <Compile Include="Templates\ITileWideText03.cs" />
+    <Compile Include="Templates\ITileWideText04.cs" />
+    <Compile Include="Templates\ITileWideText05.cs" />
+    <Compile Include="Templates\ITileWideText06.cs" />
+    <Compile Include="Templates\ITileWideText07.cs" />
+    <Compile Include="Templates\ITileWideText08.cs" />
+    <Compile Include="Templates\ITileWideText09.cs" />
+    <Compile Include="Templates\ITileWideText10.cs" />
+    <Compile Include="Templates\ITileWideText11.cs" />
+    <Compile Include="Templates\IToastImageAndText01.cs" />
+    <Compile Include="Templates\IToastImageAndText02.cs" />
+    <Compile Include="Templates\IToastImageAndText03.cs" />
+    <Compile Include="Templates\IToastImageAndText04.cs" />
+    <Compile Include="Templates\IToastText01.cs" />
+    <Compile Include="Templates\IToastText02.cs" />
+    <Compile Include="Templates\IToastText03.cs" />
+    <Compile Include="Templates\IToastText04.cs" />
+    <Compile Include="Templates\TileSquarePeekImageAndText01.cs" />
+    <Compile Include="Templates\TileSquarePeekImageAndText02.cs" />
+    <Compile Include="Templates\TileSquarePeekImageAndText03.cs" />
+    <Compile Include="Templates\TileSquarePeekImageAndText04.cs" />
+    <Compile Include="Templates\TileSquareText01.cs" />
+    <Compile Include="Templates\TileSquareText02.cs" />
+    <Compile Include="Templates\TileSquareText03.cs" />
+    <Compile Include="Templates\TileSquareText04.cs" />
+    <Compile Include="Templates\TileWideBlockAndText01.cs" />
+    <Compile Include="Templates\TileWideBlockAndText02.cs" />
+    <Compile Include="Templates\TileWideImageAndText01.cs" />
+    <Compile Include="Templates\TileWideImageAndText02.cs" />
+    <Compile Include="Templates\TileWidePeekImage01.cs" />
+    <Compile Include="Templates\TileWidePeekImage02.cs" />
+    <Compile Include="Templates\TileWidePeekImage03.cs" />
+    <Compile Include="Templates\TileWidePeekImage04.cs" />
+    <Compile Include="Templates\TileWidePeekImage05.cs" />
+    <Compile Include="Templates\TileWidePeekImage06.cs" />
+    <Compile Include="Templates\TileWidePeekImageAndText01.cs" />
+    <Compile Include="Templates\TileWidePeekImageAndText02.cs" />
+    <Compile Include="Templates\TileWidePeekImageCollection01.cs" />
+    <Compile Include="Templates\TileWidePeekImageCollection02.cs" />
+    <Compile Include="Templates\TileWidePeekImageCollection03.cs" />
+    <Compile Include="Templates\TileWidePeekImageCollection04.cs" />
+    <Compile Include="Templates\TileWidePeekImageCollection05.cs" />
+    <Compile Include="Templates\TileWidePeekImageCollection06.cs" />
+    <Compile Include="Templates\TileWideSmallImageAndText01.cs" />
+    <Compile Include="Templates\TileWideSmallImageAndText02.cs" />
+    <Compile Include="Templates\TileWideSmallImageAndText03.cs" />
+    <Compile Include="Templates\TileWideSmallImageAndText04.cs" />
+    <Compile Include="Templates\TileWideText01.cs" />
+    <Compile Include="Templates\TileWideText02.cs" />
+    <Compile Include="Templates\TileWideText03.cs" />
+    <Compile Include="Templates\TileWideText04.cs" />
+    <Compile Include="Templates\TileWideText05.cs" />
+    <Compile Include="Templates\TileWideText06.cs" />
+    <Compile Include="Templates\TileWideText07.cs" />
+    <Compile Include="Templates\TileWideText08.cs" />
+    <Compile Include="Templates\TileWideText09.cs" />
+    <Compile Include="Templates\TileWideText10.cs" />
+    <Compile Include="Templates\TileWideText11.cs" />
+    <Compile Include="TileBranding.cs" />
+    <Compile Include="TileContentFactory.cs" />
+    <Compile Include="TileNotificationBase.cs" />
+    <Compile Include="TileSquareBase.cs" />
+    <Compile Include="TileSquareBlock.cs" />
+    <Compile Include="TileSquareImage.cs" />
+    <Compile Include="TileWideBase.cs" />
+    <Compile Include="TileWideImage.cs" />
+    <Compile Include="TileWideImageCollection.cs" />
+    <Compile Include="ToastAudioContent.cs" />
+    <Compile Include="ToastDuration.cs" />
+    <Compile Include="Util.cs" />
+    <Compile Include="NotificationBase.cs" />
+    <Compile Include="NotificationContentImage.cs" />
+    <Compile Include="NotificationContentText.cs" />
+    <Compile Include="NotificationContentValidationException.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '11.0' ">
+    <VisualStudioVersion>11.0</VisualStudioVersion>
+  </PropertyGroup>
+  <Import Project="$(MSBuildExtensionsPath)\Microsoft\WindowsXaml\v$(VisualStudioVersion)\Microsoft.Windows.UI.Xaml.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

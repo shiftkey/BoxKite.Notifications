@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>BoxKite.Notifications</id>
+    <version>{version}</version>
+    <title>BoxKite.Notifications</title>
+    <authors>Brendan Forster</authors>
+    <owners>Brendan Forster</owners>
+    <projectUrl>http://github.com/shiftkey/BoxKite.Notifications/</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>A Rx-based library for interacting with the Twitter API on Windows 8</description>
+    <releaseNotes>Initial Release</releaseNotes>
+    <copyright>Copyright 2012</copyright>
+    <tags>WinRT Twitter BoxKite</tags>
+    <dependencies>
+    <dependency id="Newtonsoft.Json" version="4.5.7" />
+    <dependency id="Rx-Core" version="2.0.20622-rc" />
+    <dependency id="Rx-Interfaces" version="2.0.20622-rc" />
+    <dependency id="Rx-Linq" version="2.0.20622-rc" />
+    <dependency id="Rx-Main" version="2.0.20622-rc" />
+    <dependency id="Rx-PlatformServices" version="2.0.20622-rc" />
+  </dependencies>
+  </metadata>
+</package>
