@@ -9,7 +9,7 @@ I can't take credit for the initial code - I found it inside an MSDN sample - sp
 
 But rather than include the source code for every app, I've pulled this out to a NuGet package so that it is easier to consume (for me and for everyone else).
 
-**Install-Package BoxKite.Notifications**
+**Install-Package BoxKite.Notifications -IncludePrerelease**
 
 ## How to use
 
