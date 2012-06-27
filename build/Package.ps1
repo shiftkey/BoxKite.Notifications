@@ -6,7 +6,7 @@ properties {
     $OutputDir = "$BaseDir\Deploy\Package\"
     $ArtifactsDir = "$BaseDir\artifacts\"
     $NuGetPackDir = Join-Path "$OutputDir" "Pack\"
-    $BaseVersion = "0.0.1"
+    $BaseVersion = "0.0.2"
     $Version = "$BaseVersion-pre" 
     $PatchNumber = (git rev-list --all | wc -l).trim() # TODO: better implementation
     $AssemblyVersion = "$BaseVersion.$PatchNumber"
