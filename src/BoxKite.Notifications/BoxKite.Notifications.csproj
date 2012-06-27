@@ -207,6 +207,17 @@
     <Compile Include="Templates\TileWideText09.cs" />
     <Compile Include="Templates\TileWideText10.cs" />
     <Compile Include="Templates\TileWideText11.cs" />
+    <Compile Include="Templates\ToastAudio.cs" />
+    <Compile Include="Templates\ToastContentFactory.cs" />
+    <Compile Include="Templates\ToastImageAndText01.cs" />
+    <Compile Include="Templates\ToastImageAndText02.cs" />
+    <Compile Include="Templates\ToastImageAndText03.cs" />
+    <Compile Include="Templates\ToastImageAndText04.cs" />
+    <Compile Include="Templates\ToastNotificationBase.cs" />
+    <Compile Include="Templates\ToastText01.cs" />
+    <Compile Include="Templates\ToastText02.cs" />
+    <Compile Include="Templates\ToastText03.cs" />
+    <Compile Include="Templates\ToastText04.cs" />
     <Compile Include="TileBranding.cs" />
     <Compile Include="TileContentFactory.cs" />
     <Compile Include="TileNotificationBase.cs" />

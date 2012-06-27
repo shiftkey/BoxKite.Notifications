@@ -27,13 +27,17 @@ namespace BoxKite.Notifications
             {
                 builder.AppendFormat(" baseUri='{0}'", Util.HttpEncode(BaseUri));
             }
+            if (AddImageQuery)
+            {
+                builder.AppendFormat(" addImageQuery='true'");
+            }
             builder.Append(">");
-            builder.Append(SerializeBinding(Lang, BaseUri, Branding));
+            builder.Append(SerializeBinding(Lang, BaseUri, Branding, AddImageQuery));
             builder.Append("</visual></tile>");
             return builder.ToString();
         }
 
-        public string SerializeBinding(string globalLang, string globalBaseUri, TileBranding globalBranding)
+        public string SerializeBinding(string globalLang, string globalBaseUri, TileBranding globalBranding, bool globalAddImageQuery)
         {
             StringBuilder bindingNode = new StringBuilder(String.Empty);
             bindingNode.AppendFormat("<binding template='{0}'", TemplateName);
@@ -51,7 +55,12 @@ namespace BoxKite.Notifications
                 bindingNode.AppendFormat(" baseUri='{0}'", Util.HttpEncode(BaseUri));
                 globalBaseUri = BaseUri;
             }
-            bindingNode.AppendFormat(">{0}</binding>", SerializeProperties(globalLang, globalBaseUri));
+            if (AddImageQueryNullable != null && AddImageQueryNullable != globalAddImageQuery)
+            {
+                bindingNode.AppendFormat(" addImageQuery='{0}'", AddImageQuery.ToString().ToLowerInvariant());
+                globalAddImageQuery = AddImageQuery;
+            }
+            bindingNode.AppendFormat(">{0}</binding>", SerializeProperties(globalLang, globalBaseUri, globalAddImageQuery));
 
             return bindingNode.ToString();
         }

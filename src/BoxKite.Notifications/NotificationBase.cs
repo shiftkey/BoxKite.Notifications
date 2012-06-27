@@ -4,13 +4,21 @@ using Windows.Data.Xml.Dom;
 
 namespace BoxKite.Notifications
 {
+
+    /// <summary>
+    /// Base class for the notification content creation helper classes.
+    /// </summary>
+#if !WINRT_NOT_PRESENT
     internal abstract class NotificationBase
+#else
+    abstract partial class NotificationBase
+#endif
     {
         protected NotificationBase(string templateName, int imageCount, int textCount)
         {
             m_TemplateName = templateName;
 
-            m_Images = new INotificationContentImage[imageCount];
+            m_Images = new NotificationContentImage[imageCount];
             for (int i = 0; i < m_Images.Length; i++)
             {
                 m_Images[i] = new NotificationContentImage();
@@ -87,7 +95,29 @@ namespace BoxKite.Notifications
             set { m_Lang = value; }
         }
 
-        protected string SerializeProperties(string globalLang, string globalBaseUri)
+        public bool AddImageQuery
+        {
+            get
+            {
+                if (m_AddImageQueryNullable == null || m_AddImageQueryNullable.Value == false)
+                {
+                    return false;
+                }
+                else
+                {
+                    return true;
+                }
+            }
+            set { m_AddImageQueryNullable = value; }
+        }
+
+        public bool? AddImageQueryNullable
+        {
+            get { return m_AddImageQueryNullable; }
+            set { m_AddImageQueryNullable = value; }
+        }
+
+        protected string SerializeProperties(string globalLang, string globalBaseUri, bool globalAddImageQuery)
         {
             globalLang = (globalLang != null) ? globalLang : String.Empty;
             globalBaseUri = String.IsNullOrWhiteSpace(globalBaseUri) ? null : globalBaseUri;
@@ -101,11 +131,25 @@ namespace BoxKite.Notifications
                     if (!String.IsNullOrWhiteSpace(m_Images[i].Alt))
                     {
                         string escapedAlt = Util.HttpEncode(m_Images[i].Alt);
-                        builder.AppendFormat("<image id='{0}' src='{1}' alt='{2}'/>", i + 1, escapedSrc, escapedAlt);
+                        if (m_Images[i].AddImageQueryNullable == null || m_Images[i].AddImageQueryNullable == globalAddImageQuery)
+                        {
+                            builder.AppendFormat("<image id='{0}' src='{1}' alt='{2}'/>", i + 1, escapedSrc, escapedAlt);
+                        }
+                        else
+                        {
+                            builder.AppendFormat("<image addImageQuery='{0}' id='{1}' src='{2}' alt='{3}'/>", m_Images[i].AddImageQuery.ToString().ToLowerInvariant(), i + 1, escapedSrc, escapedAlt);
+                        }
                     }
                     else
                     {
-                        builder.AppendFormat("<image id='{0}' src='{1}'/>", i + 1, escapedSrc);
+                        if (m_Images[i].AddImageQueryNullable == null || m_Images[i].AddImageQueryNullable == globalAddImageQuery)
+                        {
+                            builder.AppendFormat("<image id='{0}' src='{1}'/>", i + 1, escapedSrc);
+                        }
+                        else
+                        {
+                            builder.AppendFormat("<image addImageQuery='{0}' id='{1}' src='{2}'/>", m_Images[i].AddImageQuery.ToString().ToLowerInvariant(), i + 1, escapedSrc);
+                        }
                     }
                 }
             }
@@ -133,11 +177,12 @@ namespace BoxKite.Notifications
         public string TemplateName { get { return m_TemplateName; } }
 
         private bool m_StrictValidation = true;
-        private INotificationContentImage[] m_Images;
+        private NotificationContentImage[] m_Images;
         private INotificationContentText[] m_TextFields;
-        // Remove when "lang" is not required on the visual element
-        private string m_Lang = "en-US";
+
+        private string m_Lang;
         private string m_BaseUri;
         private string m_TemplateName;
+        private bool? m_AddImageQueryNullable;
     }
 }

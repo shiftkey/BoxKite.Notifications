@@ -45,10 +45,14 @@ namespace BoxKite.Notifications
             {
                 visualNode.AppendFormat(" baseUri='{0}'", Util.HttpEncode(BaseUri));
             }
+            if (AddImageQuery)
+            {
+                visualNode.AppendFormat(" addImageQuery='true'");
+            }
             visualNode.Append(">");
 
             StringBuilder builder = new StringBuilder(String.Empty);
-            builder.AppendFormat("<tile>{0}<binding template='{1}'>{2}</binding>", visualNode, TemplateName, SerializeProperties(Lang, BaseUri));
+            builder.AppendFormat("<tile>{0}<binding template='{1}'>{2}</binding>", visualNode, TemplateName, SerializeProperties(Lang, BaseUri, AddImageQuery));
             if (SquareContent != null)
             {
                 ISquareTileInternal squareBase = SquareContent as ISquareTileInternal;
@@ -56,7 +60,7 @@ namespace BoxKite.Notifications
                 {
                     throw new NotificationContentValidationException("The provided square tile content class is unsupported.");
                 }
-                builder.Append(squareBase.SerializeBinding(Lang, BaseUri, Branding));
+                builder.Append(squareBase.SerializeBinding(Lang, BaseUri, Branding, AddImageQuery));
             }
             builder.Append("</visual></tile>");
 
@@ -66,4 +70,5 @@ namespace BoxKite.Notifications
         private ISquareTileNotificationContent m_SquareContent = null;
         private bool m_RequireSquareContent = true;
     }
+
 }
