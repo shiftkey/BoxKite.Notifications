@@ -35,9 +35,9 @@ Then, use the `ToastContentFactory` static class to create the desired template 
 
 And lastly, send this update to the ToastNotificationManager:
 
-    var toast = toastContent.CreateNotification(); 
- 
-    ToastNotificationManager.CreateToastNotifier().Show(toast); 
+    var notification = tileUpdate.CreateNotification();
+
+    TileUpdateManager.CreateTileUpdaterForApplication().Update(notification); 
   
 And that's it. How easy is that?
 
