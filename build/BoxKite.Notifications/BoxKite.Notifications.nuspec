@@ -7,7 +7,7 @@
     <authors>Brendan Forster</authors>
     <owners>Brendan Forster</owners>
     <projectUrl>http://github.com/shiftkey/BoxKite.Notifications/</projectUrl>
-    <licenceUrl>https://raw.github.com/shiftkey/BoxKite.Notifications/master/LICENCE.md</licenceUrl>
+    <licenseUrl>https://raw.github.com/shiftkey/BoxKite.Notifications/master/LICENCE.md</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>Use C# objects to craft notifications for Windows 8 apps</description>
     <releaseNotes>Added toast notifications and changes to images for Win 8 RP</releaseNotes>
