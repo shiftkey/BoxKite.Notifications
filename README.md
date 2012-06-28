@@ -3,44 +3,69 @@ BoxKite.Notifications
 
 ## What is this?
 
-Create notifications inside your Win8 apps using C# objects rather than fiddling with XML. 
+Create notifications for your Windows 8 apps without parsing XML like a caveman.
 
-I can't take credit for the initial code - I found it inside an MSDN sample - specifically [this one](http://code.msdn.microsoft.com/windowsapps/Toast-notifications-sample-52eeba29/).
+I can't take credit for the initial code - it came from a Windows 8 [MSDN sample](http://code.msdn.microsoft.com/windowsapps/Toast-notifications-sample-52eeba29/).
 
-But rather than include the source code for every app, I've pulled this out to a NuGet package so that it is easier to consume (for me and for everyone else).
+So rather than copy the source code into each app, I've pulled this out to a NuGet package so that it is easier to consume (for me and for everyone else). I'm also cleaning up the code for readability as I go.
 
-**Install-Package BoxKite.Notifications -Pre**
+To install it from NuGet:
 
-## How to use
+##`PM> Install-Package BoxKite.Notifications -Pre`
 
-First off, get familiar with the [templates available](http://msdn.microsoft.com/en-us/library/windows/apps/hh761491.aspx) when creating notifications.
+## How do I use it?
+
+First off, have a look at the notification [templates available](http://msdn.microsoft.com/en-us/library/windows/apps/hh761491.aspx) for creating notifications. This will give you an idea of what information you can show to users. 
 
 After installing the NuGet package, add these namespaces to the top of the class:
 
     using BoxKite.Notifications;
     using BoxKite.Notifications.Templates;
 
-Then, use the `ToastContentFactory` static class to create the desired template and populate the content:
+### Tile Notifications
 
-    var tileContent = TileContentFactory.CreateTileWideSmallImageAndText03();
-    tileContent.Image.Src = tweet.User.Avatar;
-    tileContent.TextBodyWrap.Text = tweet.Text;
-    tileContent.Image.Alt = tweet.User.Name;
+Then, use the `TileContentFactory` static class to create the desired template and populate the content.
 
-    var squareContent = TileContentFactory.CreateTileSquareText04();
-    squareContent.TextBodyWrap.Text = tweet.Text;
-    tileContent.SquareContent = squareContent;
+    var tileUpdate = TileContentFactory.CreateTileWideSmallImageAndText03();
+    tileUpdate.Image.Src = tweet.User.Avatar;
+    tileUpdate.TextBodyWrap.Text = tweet.Text;
+    tileUpdate.Image.Alt = tweet.User.Name;
+
+    var squareUpdate = TileContentFactory.CreateTileSquareText04();
+    squareUpdate.TextBodyWrap.Text = tweet.Text;
+    tileUpdate.SquareContent = squareContent;
 
 **Note:** why did I create two tiles? Because the live tiles may be wide or square depending on how the user has configured the tile - don't forget this!
 
-And lastly, send this update to the ToastNotificationManager:
+And lastly, send this update to the TileUpdateManager:
 
-    var notification = tileUpdate.CreateNotification();
-
-    TileUpdateManager.CreateTileUpdaterForApplication().Update(notification); 
+    TileUpdateManager.CreateTileUpdaterForApplication().Update(tileUpdate.CreateNotification()); 
   
 And that's it. How easy is that?
 
+### Toast Notifications
+
+These behave in a similar way, using `ToastContentFactory` instead.
+
+    var notifier = ToastNotificationManager.CreateToastNotifier();
+    if (notifier.Setting == NotificationSetting.Enabled)
+    {
+        var template = ToastContentFactory.CreateToastImageAndText04();
+
+        template.TextHeading.Text = "Some Heading";
+        template.TextBody1.Text = "Words go here";
+        template.TextBody2.Text = "and also here";
+        template.Image.Src = "https://dl.dropbox.com/u/5803705/sample.png";
+
+        ToastNotificationManager.CreateToastNotifier().Show(template.CreateNotification());    
+    }
+
 ## What else is missing?
 
-Not sure. I'd rather keep this library specialized for this task, but if there's features you think would work nicely why not get in touch on [Twitter](http://twitter.com/shiftkey) or leave an issue on [the site](https://github.com/shiftkey/BoxKite.Notifications/issues)...
+I'd rather keep this library specialized for a single task, but if there's features you think would work nicely within this context you can get in touch on [Twitter](http://twitter.com/shiftkey) or leave an issue on [the site](https://github.com/shiftkey/BoxKite.Notifications/issues)...
+
+Also open to pull requests to simplify the API - while the syntax makes it easy to discover, I'm not a huge fan of the `template.Foo.Bar.Something` dot-heavy conventions...
+
+## Why MS-LPL (Microsoft Limited Public License?
+
+Personally, I would have chosen a more permissive license. However this was the licence associated with all the Windows 8 samples. I am not a lawyer, so I am choosing to follow the upstream licenses with this project.

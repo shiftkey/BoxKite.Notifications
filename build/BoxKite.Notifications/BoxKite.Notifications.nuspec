@@ -7,10 +7,10 @@
     <authors>Brendan Forster</authors>
     <owners>Brendan Forster</owners>
     <projectUrl>http://github.com/shiftkey/BoxKite.Notifications/</projectUrl>
-    <licenseUrl>https://raw.github.com/shiftkey/BoxKite.Notifications/master/LICENCE.md</licenseUrl>
-    <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <description>Use C# objects to craft notifications for Windows 8 apps</description>
-    <releaseNotes>Added toast notifications and changes to images for Win 8 RP</releaseNotes>
+    <licenseUrl>http://www.ohloh.net/licenses/mslpl</licenseUrl>
+    <requireLicenseAcceptance>true</requireLicenseAcceptance>
+    <description>Create notifications for your Windows 8 apps without that awful XML stuff</description>
+    <releaseNotes>Updated legal information</releaseNotes>
     <copyright>Copyright 2012</copyright>
     <tags>WinRT BoxKite Notifications Win8 Windows8</tags>
   </metadata>
