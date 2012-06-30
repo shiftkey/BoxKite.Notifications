@@ -11,7 +11,7 @@ So rather than copy the source code into each app, I've pulled this out to a NuG
 
 To install it from NuGet:
 
-##`PM> Install-Package BoxKite.Notifications -Pre`
+###`PM> Install-Package BoxKite.Notifications -Version 0.0.4-pre -Pre`
 
 ## How do I use it?
 
