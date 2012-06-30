@@ -102,6 +102,8 @@
     <!-- A reference to the entire .Net Framework and Windows SDK are automatically included -->
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BadgeContent.cs" />
+    <Compile Include="BadgeGlyphNotificationContent.cs" />
     <Compile Include="GlyphValue.cs" />
     <Compile Include="IBadgeNotificationContent.cs" />
     <Compile Include="INotificationContent.cs" />
