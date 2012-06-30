@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link href='https://fonts.googleapis.com/css?family=Architects+Daughter' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="stylesheets/pygment_trac.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print" />
+
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <title>Boxkite.Notifications by shiftkey</title>
+  </head>
+
+  <body>
+    <header>
+      <div class="inner">
+        <h1>Boxkite.Notifications</h1>
+        <h2>Create notifications for your Windows 8 apps without parsing XML like a caveman</h2>
+        <a href="https://github.com/shiftkey/BoxKite.Notifications" class="button"><small>View project on</small>GitHub</a>
+      </div>
+    </header>
+
+    <div id="content-wrapper">
+      <div class="inner clearfix">
+        <section id="main-content">
+          <h1>BoxKite.Notifications</h1>
+
+<h2>What is this?</h2>
+
+<p>Create notifications for your Windows 8 apps without parsing XML like a caveman.</p>
+
+<p>I can't take credit for the initial code - it came from a Windows 8 <a href="http://code.msdn.microsoft.com/windowsapps/Toast-notifications-sample-52eeba29/">MSDN sample</a>.</p>
+
+<p>So rather than copy the source code into each app, I've pulled this out to a NuGet package so that it is easier to consume (for me and for everyone else). I'm also cleaning up the code for readability as I go.</p>
+
+<p>To install it from NuGet:</p>
+
+<h3><code>PM&gt; Install-Package BoxKite.Notifications -Version 0.0.4-pre -Pre</code></h3>
+
+<h2>How do I use it?</h2>
+
+<p>First off, have a look at the notification <a href="http://msdn.microsoft.com/en-us/library/windows/apps/hh761491.aspx">templates available</a> for creating notifications. This will give you an idea of what information you can show to users. </p>
+
+<p>After installing the NuGet package, add these namespaces to the top of the class:</p>
+
+<pre><code>using BoxKite.Notifications;
+using BoxKite.Notifications.Templates;
+</code></pre>
+
+<h3>Tile Notifications</h3>
+
+<p>Then, use the <code>TileContentFactory</code> static class to create the desired template and populate the content.</p>
+
+<pre><code>var tileUpdate = TileContentFactory.CreateTileWideSmallImageAndText03();
+tileUpdate.Image.Src = tweet.User.Avatar;
+tileUpdate.TextBodyWrap.Text = tweet.Text;
+tileUpdate.Image.Alt = tweet.User.Name;
+
+var squareUpdate = TileContentFactory.CreateTileSquareText04();
+squareUpdate.TextBodyWrap.Text = tweet.Text;
+tileUpdate.SquareContent = squareContent;
+</code></pre>
+
+<p><strong>Note:</strong> why did I create two tiles? Because the live tiles may be wide or square depending on how the user has configured the tile - don't forget this!</p>
+
+<p>And lastly, send this update to the TileUpdateManager:</p>
+
+<pre><code>TileUpdateManager.CreateTileUpdaterForApplication().Update(tileUpdate.CreateNotification()); 
+</code></pre>
+
+<p>And that's it. How easy is that?</p>
+
+<h3>Toast Notifications</h3>
+
+<p>These behave in a similar way, using <code>ToastContentFactory</code> instead.</p>
+
+<pre><code>var notifier = ToastNotificationManager.CreateToastNotifier();
+if (notifier.Setting == NotificationSetting.Enabled)
+{
+    var template = ToastContentFactory.CreateToastImageAndText04();
+
+    template.TextHeading.Text = "Some Heading";
+    template.TextBody1.Text = "Words go here";
+    template.TextBody2.Text = "and also here";
+    template.Image.Src = "https://dl.dropbox.com/u/5803705/sample.png";
+
+    ToastNotificationManager.CreateToastNotifier().Show(template.CreateNotification());    
+}
+</code></pre>
+
+<h2>What else is missing?</h2>
+
+<p>I haven't integrated the BadgeContent samples (to show numbers or symbols on the tile). Let's see if I can do this now</p>
+
+<p>I'd rather keep this library specialized for a single task, but if there's features you think would work nicely within this context you can get in touch on <a href="http://twitter.com/shiftkey">Twitter</a> or leave an issue on <a href="https://github.com/shiftkey/BoxKite.Notifications/issues">the site</a>...</p>
+
+<p>Also open to pull requests to simplify the API - while the syntax makes it easy to discover, I'm not a huge fan of the <code>template.Foo.Bar.Something</code> dot-heavy conventions...</p>
+
+<h2>Why MS-LPL (Microsoft Limited Public License)?</h2>
+
+<p>Personally, I would have chosen a more permissive license. However this was the licence associated with all the Windows 8 samples. I am not a lawyer, so I am choosing to follow the upstream licenses with this project.</p>
+        </section>
+
+        <aside id="sidebar">
+          <a href="https://github.com/shiftkey/BoxKite.Notifications/zipball/master" class="button">
+            <small>Download</small>
+            .zip file
+          </a>
+          <a href="https://github.com/shiftkey/BoxKite.Notifications/tarball/master" class="button">
+            <small>Download</small>
+            .tar.gz file
+          </a>
+
+          <p class="repo-owner"><a href="https://github.com/shiftkey/BoxKite.Notifications"></a> is maintained by <a href="https://github.com/shiftkey">shiftkey</a>.</p>
+
+          <p>This page was generated by <a href="pages.github.com">GitHub Pages</a> using the Architect theme by <a href="http://twitter.com/jasonlong">Jason Long</a>.</p>
+        </aside>
+      </div>
+    </div>
+
+  
+  </body>
+</html>
