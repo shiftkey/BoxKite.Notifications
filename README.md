@@ -62,10 +62,12 @@ These behave in a similar way, using `ToastContentFactory` instead.
 
 ## What else is missing?
 
+I haven't integrated the BadgeContent samples (to show numbers or symbols on the tile). Let's see if I can do this now
+
 I'd rather keep this library specialized for a single task, but if there's features you think would work nicely within this context you can get in touch on [Twitter](http://twitter.com/shiftkey) or leave an issue on [the site](https://github.com/shiftkey/BoxKite.Notifications/issues)...
 
 Also open to pull requests to simplify the API - while the syntax makes it easy to discover, I'm not a huge fan of the `template.Foo.Bar.Something` dot-heavy conventions...
 
-## Why MS-LPL (Microsoft Limited Public License?
+## Why MS-LPL (Microsoft Limited Public License)?
 
 Personally, I would have chosen a more permissive license. However this was the licence associated with all the Windows 8 samples. I am not a lawyer, so I am choosing to follow the upstream licenses with this project.
