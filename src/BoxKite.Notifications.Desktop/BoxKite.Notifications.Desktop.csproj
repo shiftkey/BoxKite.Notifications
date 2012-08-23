@@ -1,0 +1,147 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{FF1FD119-A707-4E23-A2D0-914985509F73}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>BoxKite.Notifications.Desktop</RootNamespace>
+    <AssemblyName>BoxKite.Notifications.Desktop</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetPlatformVersion>8.0</TargetPlatformVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Windows" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="..\BoxKite.Notifications\INotificationContent.cs">
+      <Link>INotificationContent.cs</Link>
+    </Compile>
+    <Compile Include="..\BoxKite.Notifications\INotificationContentImage.cs">
+      <Link>INotificationContentImage.cs</Link>
+    </Compile>
+    <Compile Include="..\BoxKite.Notifications\INotificationContentText.cs">
+      <Link>INotificationContentText.cs</Link>
+    </Compile>
+    <Compile Include="..\BoxKite.Notifications\IToastAudio.cs">
+      <Link>IToastAudio.cs</Link>
+    </Compile>
+    <Compile Include="..\BoxKite.Notifications\IToastNotificationContent.cs">
+      <Link>IToastNotificationContent.cs</Link>
+    </Compile>
+    <Compile Include="..\BoxKite.Notifications\NotificationBase.cs">
+      <Link>NotificationBase.cs</Link>
+    </Compile>
+    <Compile Include="..\BoxKite.Notifications\NotificationContentImage.cs">
+      <Link>NotificationContentImage.cs</Link>
+    </Compile>
+    <Compile Include="..\BoxKite.Notifications\NotificationContentText.cs">
+      <Link>NotificationContentText.cs</Link>
+    </Compile>
+    <Compile Include="..\BoxKite.Notifications\NotificationContentValidationException.cs">
+      <Link>NotificationContentValidationException.cs</Link>
+    </Compile>
+    <Compile Include="..\BoxKite.Notifications\Templates\IToastImageAndText01.cs">
+      <Link>Templates\IToastImageAndText01.cs</Link>
+    </Compile>
+    <Compile Include="..\BoxKite.Notifications\Templates\IToastImageAndText02.cs">
+      <Link>Templates\IToastImageAndText02.cs</Link>
+    </Compile>
+    <Compile Include="..\BoxKite.Notifications\Templates\IToastImageAndText03.cs">
+      <Link>Templates\IToastImageAndText03.cs</Link>
+    </Compile>
+    <Compile Include="..\BoxKite.Notifications\Templates\IToastImageAndText04.cs">
+      <Link>Templates\IToastImageAndText04.cs</Link>
+    </Compile>
+    <Compile Include="..\BoxKite.Notifications\Templates\IToastText01.cs">
+      <Link>Templates\IToastText01.cs</Link>
+    </Compile>
+    <Compile Include="..\BoxKite.Notifications\Templates\IToastText02.cs">
+      <Link>Templates\IToastText02.cs</Link>
+    </Compile>
+    <Compile Include="..\BoxKite.Notifications\Templates\IToastText03.cs">
+      <Link>Templates\IToastText03.cs</Link>
+    </Compile>
+    <Compile Include="..\BoxKite.Notifications\Templates\IToastText04.cs">
+      <Link>Templates\IToastText04.cs</Link>
+    </Compile>
+    <Compile Include="..\BoxKite.Notifications\Templates\ToastAudio.cs">
+      <Link>Templates\ToastAudio.cs</Link>
+    </Compile>
+    <Compile Include="..\BoxKite.Notifications\Templates\ToastContentFactory.cs">
+      <Link>Templates\ToastContentFactory.cs</Link>
+    </Compile>
+    <Compile Include="..\BoxKite.Notifications\Templates\ToastImageAndText01.cs">
+      <Link>Templates\ToastImageAndText01.cs</Link>
+    </Compile>
+    <Compile Include="..\BoxKite.Notifications\Templates\ToastImageAndText02.cs">
+      <Link>Templates\ToastImageAndText02.cs</Link>
+    </Compile>
+    <Compile Include="..\BoxKite.Notifications\Templates\ToastImageAndText03.cs">
+      <Link>Templates\ToastImageAndText03.cs</Link>
+    </Compile>
+    <Compile Include="..\BoxKite.Notifications\Templates\ToastImageAndText04.cs">
+      <Link>Templates\ToastImageAndText04.cs</Link>
+    </Compile>
+    <Compile Include="..\BoxKite.Notifications\Templates\ToastNotificationBase.cs">
+      <Link>Templates\ToastNotificationBase.cs</Link>
+    </Compile>
+    <Compile Include="..\BoxKite.Notifications\Templates\ToastText01.cs">
+      <Link>Templates\ToastText01.cs</Link>
+    </Compile>
+    <Compile Include="..\BoxKite.Notifications\Templates\ToastText02.cs">
+      <Link>Templates\ToastText02.cs</Link>
+    </Compile>
+    <Compile Include="..\BoxKite.Notifications\Templates\ToastText03.cs">
+      <Link>Templates\ToastText03.cs</Link>
+    </Compile>
+    <Compile Include="..\BoxKite.Notifications\Templates\ToastText04.cs">
+      <Link>Templates\ToastText04.cs</Link>
+    </Compile>
+    <Compile Include="..\BoxKite.Notifications\ToastAudioContent.cs">
+      <Link>ToastAudioContent.cs</Link>
+    </Compile>
+    <Compile Include="..\BoxKite.Notifications\ToastDuration.cs">
+      <Link>ToastDuration.cs</Link>
+    </Compile>
+    <Compile Include="..\BoxKite.Notifications\Util.cs">
+      <Link>Util.cs</Link>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
