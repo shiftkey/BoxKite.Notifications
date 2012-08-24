@@ -6,7 +6,7 @@ properties {
     $OutputDir = "$BaseDir\Deploy\Package\"
     $ArtifactsDir = "$BaseDir\artifacts\"
     $NuGetPackDir = Join-Path "$OutputDir" "Pack\"
-    $BaseVersion = "0.0.4"
+    $BaseVersion = "0.0.5"
     $Version = "$BaseVersion-pre" 
     $PatchNumber = (git rev-list --all | wc -l).trim() # TODO: better implementation
     $AssemblyVersion = "$BaseVersion.$PatchNumber"
@@ -47,16 +47,14 @@ function Create-Package {
     Create-IfNotFound $TempDir
     Create-IfNotFound $ArtifactsDir
     Create-IfNotFound "$TempDir\lib\winrt45\"
+    Create-IfNotFound "$TempDir\lib\net45\"
 
     $PackageNameFile = "$PackageName.nuspec"
     $nuspecFile = "$BaseDir\build\$PackageName\$PackageName.nuspec"
 
     cp $nuspecFile $TempDir
-    cp "$OutputDir\$PackageName\$PackageName.dll" "$TempDir\lib\winrt45\" # add initial assembly
-
-    if (Test-Path "$PackageName\tools\") { # import any PS scripts for this package
-        cp "$PackageName\tools\*" "$TempDir\tools\"
-    }
+    cp "$OutputDir\BoxKite.Notifications\BoxKite.Notifications.dll" "$TempDir\lib\winrt45\"
+    cp "$OutputDir\BoxKite.Notifications.Desktop.dll" "$TempDir\lib\net45\" # TODO: why even is this off?
    
     Log-Message "Modifying placeholder in nuspec file"
     $Spec = [xml](get-content "$TempDir\$PackageNameFile")

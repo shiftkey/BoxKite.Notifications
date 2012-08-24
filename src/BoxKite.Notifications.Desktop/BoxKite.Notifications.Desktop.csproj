@@ -7,7 +7,7 @@
     <ProjectGuid>{FF1FD119-A707-4E23-A2D0-914985509F73}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>BoxKite.Notifications.Desktop</RootNamespace>
+    <RootNamespace>BoxKite.Notifications</RootNamespace>
     <AssemblyName>BoxKite.Notifications.Desktop</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <TargetPlatformVersion>8.0</TargetPlatformVersion>

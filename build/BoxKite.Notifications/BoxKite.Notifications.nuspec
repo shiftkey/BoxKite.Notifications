@@ -4,13 +4,13 @@
     <id>BoxKite.Notifications</id>
     <version>{version}</version>
     <title>BoxKite.Notifications</title>
-    <authors>Brendan Forster</authors>
+    <authors>Brendan Forster, Paul Jenkins</authors>
     <owners>Brendan Forster</owners>
     <projectUrl>http://github.com/shiftkey/BoxKite.Notifications/</projectUrl>
     <licenseUrl>http://www.ohloh.net/licenses/mslpl</licenseUrl>
     <requireLicenseAcceptance>true</requireLicenseAcceptance>
     <description>Create notifications for your Windows 8 apps without that awful XML stuff</description>
-    <releaseNotes>Updated legal information</releaseNotes>
+    <releaseNotes>Started on version for doing notifications from desktop apps</releaseNotes>
     <copyright>Copyright 2012</copyright>
     <tags>WinRT BoxKite Notifications Win8 Windows8</tags>
   </metadata>
