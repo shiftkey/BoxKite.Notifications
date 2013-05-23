@@ -60,6 +60,10 @@ These behave in a similar way, using `ToastContentFactory` instead.
         ToastNotificationManager.CreateToastNotifier().Show(template.CreateNotification());    
     }
 
+Oh, and don't forget to enable `Toast Capable` in your manifest. Otherwise toasts probably won't work:
+
+![](https://dl.dropboxusercontent.com/u/5803705/boxkite-notifications-enable-it.png)
+
 ## What else is missing?
 
 I haven't integrated the BadgeContent samples (to show numbers or symbols on the tile). Let's see if I can do this now
